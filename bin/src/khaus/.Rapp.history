@@ -1,0 +1,187 @@
+my_vect <- c(4, 2, "ciao", 2)
+my_vect
+class(my_vect)
+my_vect <- list(4, 2, "ciao", 2)
+class(my_vect)
+my_vect
+my_vect < 1
+x <- sample(c(rnorm(40), rep(NA, 40)), 20)
+x
+my_vector <- 1:10
+my_vector
+dim(my_vector) <- c(2, 3)
+dim(my_vector) <- c(2, 5)
+dim(my_vector) <- c(2, 6)
+class(my_vector)
+is.matrix(my_vector)
+rm(ls())
+ls()
+rm(ls())
+?ls
+?rm
+list = ls()
+rm(list)
+pdata <- matrix(1:20, 4, 5)
+pdata
+names(pdata)
+names(pdata[1,])
+names(pdata[1,]) <- "Bill"
+pdata
+names(pdata[1,])
+attributes(pdata
+)
+my_vector <- 1:5
+names(my_vector) <- c("A", "B", "C", "D", "E")
+my_vecto
+my_vector
+?names
+pdaa
+pdata
+names(pdata) <- matrix("A", "B","C","D")
+?names
+mydata <- matrix(1:20, 4, 5)
+mydata
+?data.frame
+my_data <- data.frame(d1 = 1:10, d2 = 11:20)
+my_data
+my_data["d1"]
+my_data[c("d1", "d2")]
+my_empty <- data.frame
+class(my_empty)
+my_empty <- data.frame()
+class(my_empty)
+my_empty <- cbind(1:10)
+my_empty
+my_empty <- cbind(LETTERS[1:10])
+my_empty
+my_empty <- cbind(1:10, LETTERS[1:10])
+my_empty
+class(my_empty)
+my_empty <- as.data.frame(cbind(1:10, LETTERS[1:10]))
+my_empty
+n=600; k=15; t=10;
+ans = t*((1/4^k) * (1/(n-k+1)))
+ans
+format(ans)
+?format
+format(ans, nsmall=10)
+format(ans, nsmall=10, digits=10)
+options(scipen=999)
+ans
+t
+t * ((1/(4^k)) * (1/(n-k+1)))
+P=(1/(n-k+1) * 1/(4^k))
+1-(1-P)^t
+P=((n-k+1) * 1/(4^k))
+1-(1-P)^t
+P=((n-k+1) * (n-k+1)/(4^k))
+1-(1-P)^t
+P=1/(n-k+1)
+P
+1 - (1-P)^t
+(1/(n-k+1)) * 2 * (1 - (1/(n-k+1))^(t-2)) * (t*(t-1)/2)
+P=1/(n-k+1)
+P0=1 - (1-P)^t
+P0
+P1=1^9*(1/586)*10
+1-P1-P0
+P1=(1/(n-k+1))^9*(1/(n-k+1))*10
+1-P1-P0
+getwd()
+setwd("/Users/grcdaniele/Desktop/Draft_Hiearrachy/Selected_Edge_Weights/experiments/")
+setwd("/Users/grcdaniele/Desktop/Draft_Hiearrachy/C")
+kv = read.table("prova1.txt")
+kv
+kv = read.table("prova1.txt")
+kv = read.table("prova1.txt", row.names = FALSE, col.names = FALSE)
+kv = read.table("prova1.txt", row.names = c(), col.names = c())
+kv
+kv[1]
+kv[1,1]
+typeof(kv[1,1])
+khaus = (read.table("prova1.txt"))[1,1]
+khaus
+setwd("/Users/grcdaniele/Desktop/Draft_Hiearrachy/C")
+getwd()
+setwd("/Users/grcdaniele/Desktop/Draft_Hiearrachy/C")#
+#
+R_static.filename   = "R.static.rtable"#
+R_dynamic.filename  = "R.dynamic.rtable"#
+#
+    # load data with proper labels#
+    header = read.table(R_static.filename, nrows = 1, header = FALSE, stringsAsFactors = FALSE)#
+    RS = read.table(R_static.filename);  colnames(RS) = unlist(header)#
+    RD = read.table(R_dynamic.filename); colnames(RD) = unlist(header)#
+    m = ncol(RS)            # m:    number of edges, to normalize K_haus w.r.t total number of unordered edge-pairs
+RS
+RS[, 1:10]
+R1 = RS["EB", 1:10];
+R2 = RS["ECC4", 1:10];
+R1
+R2
+df = data.frame(R1=t(R1), R2=t(R2))
+df
+write.table(df, file = "khausin.tmp", sep = " ", row.names = FALSE, col.names = FALSE)
+getwd()
+source("driver.R")
+source("driver.R")
+RS
+RD
+"
+RS
+;
+""
+""
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+end-start
+end1-start1
+(end1-start1)/(end2-start2)
+as.numeric(end1-start1)
+as.numeric(end2-start2)
+as.numeric(end1-start1)/as.numeric(end2-start2)
+ceil
+ceiling(4.5)
+help(ceiling)
+round(4.5)
+round(4.6)
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+khaus1
+khaus2
+source("driver.R")
+source("driver.R")
+source("driver.R")
+ls
+dir
+dir()
+source("driver.R")
+getwd()
+source("driver.R")
+source("driver.R")
+source("driver.R")
+source("driver.R")
+df
+df[1:10, 1:10]
+df
+RS
+RS[wf, 1:10]
+RD[wf, 1:10]
+t(RD[wf, 1:10])
+cbind(t(RD[wf, 1:10]), t(RS[wf, 1:10]))
+df = cbind(t(RD[wf, 1:10]), t(RS[wf, 1:10]))
+df
+write.table(df, "minchia.tmp", sep = " ", row.names = FALSE, col.names = FALSE)
+df2 = data.frame(R1=t(RD[wf, 1:10]), R2=t(RS[wf, 1:10]))
+df2
+write.table(df2, "minchia2.tmp", sep = " ", row.names = FALSE, col.names = FALSE)
+source("driver.r")
+source("driver.r")

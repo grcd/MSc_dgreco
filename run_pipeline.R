@@ -74,7 +74,8 @@ if (flag_GC) {  # NOTICE: R1 is computed iff G has an external weight attached t
   
   tA = Sys.time()
     e1 = new.env()
-    sys.source("steps/01_ranking_nowf.R", envir = e1)
+    ranking_nowf = sprintf("steps/01_ranking_nowf_%s.R", Global.ElementType)
+    sys.source(ranking_nowf, envir = e1)
   getTiming(tA, Sys.time(), "Step 1, Pipeline_RANKING: R1 functional")
 }
 

@@ -6,11 +6,17 @@
 
 ##### 00. Global variables and parameters ------------------------------------------------
 
+### Edges or NodeEq?
+#Global.ElementType = "edges"  
+Global.ElementType = "nodes"  
+
+
 ### Subdirectories for reading/storing script and data
 Global.GRAPHS_DIR = file.path(getwd(), "datasets")  ## contains datasets and associated metadata
 Global.EXEC_DIR   = file.path(getwd(), "bin")       ## contains external executables for fast ranking and khaus computation
-Global.WFS_DIR    = file.path(getwd(), "WFs")       ## contains one script per weight function used
 Global.DATA_DIR   = file.path(getwd(), "data")      ## output directory: one per network
+Global.WFS_DIR    = file.path(getwd(), sprintf("WFs/%s", Global.ElementType)) ## contains one script per weight function used
+
 
 ### Verbose or not?
 Global.ranking.verbose=T  # verbose for Pipeline_RANKING
@@ -19,10 +25,10 @@ Global.PC.verbose=T       # verbose for Pipeline_ProgressiveComparison (PC)
 Global.RE.verbose=T       # verbose for Pipeline_RandomExperiments (RE)
 
 ### Get the network and set network type (either GENE or PPIN)
-Global.G.file       = file.path(Global.GRAPHS_DIR, "PPI-D1.gml")  # graph file
-Global.network_type = "PPIN"
-# Global.G.file 			 = file.path(Global.GRAPHS_DIR, "HDNG.gml")  # graph file
-# Global.network_type = "GENE"
+# Global.G.file       = file.path(Global.GRAPHS_DIR, "PPI-D1.gml")  # graph file
+# Global.network_type = "PPIN"
+Global.G.file 			 = file.path(Global.GRAPHS_DIR, "HDNG.gml")  # graph file
+Global.network_type = "GENE"
 
 ### Get the graph name by splitting the network filename
 Global.G.name = unlist(strsplit(basename(Global.G.file), split="\\."))[1]  # graph name 
@@ -39,17 +45,30 @@ Global.rank_types		= c("static")
 Global.ranking.roundTo = 3  
 
 ### select which weight functions use
-Global.ranking.incrementals = c("ECV",
-                                "GTOM2",
-                                "TOM",
-                                "kb_rec_max",
-                                "kb_rec_min",
-                                "kb_param_sym")
-Global.ranking.decrementals = c("EB",
-                                "ECC3",
-                                "ECP")
-# Global.ranking.incrementals = c("ECV", "GTOM2")
-# Global.ranking.decrementals = c("EB", "ECC3")
+if (Global.ElementType == "edges") {
+	
+	Global.ranking.incrementals = c("ECV",
+																	"GTOM2",
+																	"TOM",
+																	"kb_rec_max",
+																	"kb_rec_min",
+																	"kb_param_sym")
+	
+	Global.ranking.decrementals = c("EB",
+																	"ECC3",
+																	"ECP")
+	
+	# Global.ranking.incrementals = c("ECV", "GTOM2")
+	# Global.ranking.decrementals = c("EB", "ECC3")
+	
+} else if (Global.ElementType == "nodes") {
+	
+	Global.ranking.incrementals = c("NCC", "EGC")
+	Global.ranking.decrementals = c("NB", "SGC", "KPC")
+	
+} else {
+	stop(sprintf("Error: invalid Global.ElementType (value=%s).", Global.ElementType))
+}
 
 ### Output directory for the ranking step
 Global.ranking.NEXTDIR = file.path(Global.DATA_DIR, Global.G.name, "ranking_data")
@@ -66,8 +85,8 @@ Global.GC_NEXTDIR = file.path(Global.DATA_DIR, Global.G.name, "GC")  # dove spos
 ##### 03 Pipeline_ProgressiveComparison: Pipeline_PC.R -----------------------------------
 
 ### Files containing the gold standard either for GENE or PPIN networks
-# Global.GS.file = file.path(Global.GRAPHS_DIR, Global.G.name, "GSP.txt")             ## GENE
-Global.GS.file = file.path(Global.GRAPHS_DIR, Global.G.name, "Cmplx-D1_ids.txt")  ## PPIN
+Global.GS.file = file.path(Global.GRAPHS_DIR, Global.G.name, "GSP.txt")             ## GENE
+# Global.GS.file = file.path(Global.GRAPHS_DIR, Global.G.name, "Cmplx-D1_ids.txt")  ## PPIN
 
 ### rounding for node/edge score
 Global.PC.roundTo = 2

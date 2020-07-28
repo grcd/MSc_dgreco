@@ -8,8 +8,8 @@ rm(list = ls())
 
 library(igraph)
 source("config/PIPELINE_PARAMS.R")
-source("steps/01_ranking/rank_static.R")
-source("steps/01_ranking/rank_dynamic.R")
+source(sprintf("steps/01_ranking/%s/rank_static.R", Global.ElementType))
+source(sprintf("steps/01_ranking/%s/rank_dynamic.R", Global.ElementType))
 
 
 #  ------------------------ LOCAL PARAMETERS -----------------------
